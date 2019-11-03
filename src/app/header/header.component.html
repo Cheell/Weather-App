@@ -1,0 +1,41 @@
+<mat-toolbar class="header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col col-mr-auto">
+                Herolo Weather Task
+            </div>
+            <div class="col">
+                <form>
+                    <label style="margin-right: 0.3vw;">Theme: </label>
+                    <mat-button-toggle-group [formControl]="themeControl">
+                        <mat-button-toggle *ngFor="let theme of themes;" 
+                            (change)="onThemeToggle($event.value)"
+                            [value]="theme">{{theme | theme}}
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </form>
+            </div>
+            <div class="col">
+                <form>
+                    <label style="margin-right: 0.3vw;">Temperature: </label>
+                    <mat-button-toggle-group [formControl]="tempControl">
+                        <mat-button-toggle *ngFor="let temp of displayTemps;" 
+                            (change)="onTempToggle($event.value)"
+                            [value]="temp">{{temp}}
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </form>
+            </div>        
+            <div class="col col-auto">
+                <div class="row">
+                    <div class="col">
+                        <a mat-raised-button class="header" [routerLink]="'/home'" routerLinkActive="mat-accent"> HOME </a>
+                    </div>
+                    <div class="col">
+                        <a mat-raised-button class="header" [routerLink]="'/favorites'" routerLinkActive="mat-accent"> FAVORITES </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>

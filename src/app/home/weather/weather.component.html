@@ -1,0 +1,59 @@
+<div *ngIf="cityWeather" class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-2 offset-1">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{cityWeather.LocalizedName}}</mat-card-title>
+                    <mat-card-subtitle>{{cityWeather.Country}} - {{cityWeather.AdministrativeArea}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="../../../assets/wetherIcons/{{cityWeather.WeatherIcon}}-s.png">
+            </mat-card>
+        </div>
+        <div class="col">
+            <div class="row">
+               <div class="col weatherMain">{{cityWeather.LocalizedName}}</div>
+           </div> 
+           <div class="row">
+               <div class="col weatherMain">{{cityWeather.WeatherText}}</div>
+           </div> 
+           <div class="row">
+                <div class="col weatherTemp">{{cityWeather.Tempreture | temperature : displayTemp}}</div>
+            </div> 
+         </div>
+         <div class="col">
+            <div class="row">
+                <div class="col">
+                    <button mat-raised-button (click)="toggleFavorites()" class="weatherFavorite">
+                        <mat-icon>{{favIcon}}</mat-icon>{{favText}}
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="margin-top: 2vh;">
+                    <button mat-raised-button (click)="refresh()" class="weatherFavorite">
+                        <mat-icon>cached</mat-icon>Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 1vw;">
+        <div class="col-2" *ngFor="let forecast of cityWeather.forecasts">
+            <h4 style="text-align: center">{{forecast.Date | date : 'EEEE dd/LL'}}</h4>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-subtitle>{{forecast.iconDayText}}</mat-card-subtitle>
+                    <mat-card-title>{{forecast.maxTemp | temperature : displayTemp}}</mat-card-title>
+                </mat-card-header>
+                <img src="../../../assets/wetherIcons/{{forecast.iconDay}}-s.png">
+            </mat-card>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-subtitle>{{forecast.iconNightText}}</mat-card-subtitle>
+                    <mat-card-title>{{forecast.minTemp | temperature : displayTemp}}</mat-card-title>
+                </mat-card-header>
+                <img src="../../../assets/wetherIcons/{{forecast.iconNight}}-s.png">
+            </mat-card>
+        </div>
+    </div>
+</div>

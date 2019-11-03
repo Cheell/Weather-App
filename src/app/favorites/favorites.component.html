@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-2" *ngFor="let fav of favList" (click)="openInHome(fav)">
+            <mat-card style="text-align: center; cursor: pointer; margin-top: 3vh;">
+                <mat-card-header>
+                    <mat-card-title>{{fav.WeatherText}} {{fav.Tempreture | temperature : displayTemp}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-footer>
+                    <mat-card-title>{{fav.LocalizedName}}</mat-card-title>
+                    <mat-card-content>{{fav.Country}}</mat-card-content>
+                    <mat-card-content>{{fav.AdministrativeArea}}</mat-card-content>
+                </mat-card-footer>
+                <img mat-card-image src="../../../assets/wetherIcons/{{fav.WeatherIcon}}-s.png">
+            </mat-card>
+        </div>
+    </div>
+</div>

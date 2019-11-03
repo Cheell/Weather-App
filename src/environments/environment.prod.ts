@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  accuWeatherAPI: '8sa2kpqrsyu7o57yxLCm4TV51KCJ1wQJ'
 };

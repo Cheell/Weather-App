@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '~@angular/material/theming';
+@include mat-core();
+
+// custom themes
+@import 'my-dark-theme.scss';
+@import 'my-light-theme.scss';
+
+// additional css classes
+.my-light-theme {
+  @include angular-material-theme($my-light-theme);
+}
+
+.my-dark-theme {
+  @include angular-material-theme($my-dark-theme);
+}
+
+.mat-toolbar.header{
+    font-size: 1.2vw;
+}
+
+.mat-raised-button.header{
+    font-size: 1.2vw;
+}
+
+.myBody{
+  height: 100vmin;
+}
+
+.citySearch{
+  width: 50vmin;
+  margin-top: 1vh;
+  font-size: 1.5vw;
+}
+
+.mat-option {
+  font-size: 1.2vw;
+}
+
+.snackbar {
+  .mat-simple-snackbar {
+    font-size: 1.5vw;
+    min-width: 100%;
+  }
+  .mat-simple-snackbar-action {
+    .mat-button {
+      font-size: 1.5vw;
+    }
+  }
+}
+
+.weatherMain{
+  font-size: 2vw;
+  text-align: center;
+}
+
+.weatherTemp{
+  font-size: 2vw;
+  text-align: center;
+}
+
+.mat-raised-button.weatherFavorite{
+  font-size: 1.8vw;
+  height: 10vh;
+}

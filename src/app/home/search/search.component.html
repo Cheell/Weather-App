@@ -1,0 +1,18 @@
+<form>
+  <mat-form-field class="citySearch">
+    <input type="text"
+      placeholder="Enter city-name here to search weather" 
+      aria-label="Location" 
+      matInput 
+      [formControl]="searchControl"
+      [matAutocomplete]="auto"
+      (keyup.enter)="onSelected()">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option 
+        (click) = "onSelected()"
+        *ngFor="let city of citiesObs | async" [value]="city">
+            {{city.LocalizedName}} - {{city.Country.LocalizedName}} - {{city.AdministrativeArea.LocalizedName}}
+        </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
